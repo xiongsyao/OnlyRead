@@ -2,6 +2,8 @@ import React from "react"
 import ReactDOM from "react-dom"
 import axios from "axios"
 
+import Home from './views/Home'
+
 
 class App extends React.Component {
 	render() {
@@ -10,8 +12,8 @@ class App extends React.Component {
 			.then(res => res.data)
 			.then(data => console.log(data))
 		return (
-			<div>
-				hello,world!
+			<div style={{background:"red"}}>
+				<Home/>
 			</div>
 		)
 	}
