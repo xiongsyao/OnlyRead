@@ -14,15 +14,8 @@ def hello():
 def get_jobbole_news(page = 1):
 	jobbole = Jobbole(page)
 	news = jobbole.get_news()
-	page_info = {
-		'totalPage': 15,
-		'curPage': page
-	}
-	dataObj = {
-		'list': news,
-		'page': page_info
-	}
+
 	return jsonify(
 		message = 'OK',
-		data = dataObj
+		data = news
 	)

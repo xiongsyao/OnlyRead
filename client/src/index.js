@@ -1,8 +1,8 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import axios from "axios"
-
-import Home from './views/Home'
+import AppRoute from './router'
+import './style.css'
 
 
 class App extends React.Component {
@@ -12,9 +12,7 @@ class App extends React.Component {
 			.then(res => res.data)
 			.then(data => console.log(data))
 		return (
-			<div style={{background:"red"}}>
-				<Home/>
-			</div>
+			<AppRoute/>
 		)
 	}
 }

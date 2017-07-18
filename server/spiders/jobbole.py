@@ -14,19 +14,19 @@ class Jobbole(object):
 
     @staticmethod
     def get_news_info(element):
-        title, href, meta = [''] * 3
+        title, href, time = [''] * 3
         try:
             href = element.cssselect('h3.p-tit a')[0].get('href', '')
             title = element.cssselect('h3.p-tit a')[0].text
-            meta = element.cssselect('p.p-meta span')[0].text
+            time = element.cssselect('p.p-meta span')[0].text
         except IndexError:
             pass
 
         news_info = {
             'title': title,
+            'content': '',
             'url': href,
-            'desc': '',
-            'subdesc': meta
+            'time': time
         }
 
         return news_info
