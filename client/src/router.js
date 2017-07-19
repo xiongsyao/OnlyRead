@@ -15,7 +15,9 @@ const AppRoute = () => (
 	<Router>
 		<Route path="/" component={(props) => (
 			<MyLayout {...props}>
-				<Abstract/>
+				<Route path="/site:?">
+					<Abstract/>
+				</Route>
 			</MyLayout>
 		)}>
 		</Route>

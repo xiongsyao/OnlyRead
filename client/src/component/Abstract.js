@@ -12,14 +12,13 @@ class Abstract extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			isLoading: true
+			isLoading: true,
+			page: 1
 		}
-
-
 	}
 
 	componentDidMount() {
-		this.props.actions.fetchAbstract('jobbole','2')
+		this.props.actions.fetchAbstract('jobbole',this.state.page)
 			.then(this.setState({isLoading:false}))
 	}
 

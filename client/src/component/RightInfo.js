@@ -9,7 +9,7 @@ class RightInfo extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			autoplay: true
+			autoplay: true,
 		};
 		this.changePlay = this.changePlay.bind(this)
 	};
@@ -21,7 +21,7 @@ class RightInfo extends React.Component {
 	}
 
 	render() {
-		let {autoplay} = this.state
+		let {autoplay} = this.state;
 		return (
 			<div className="right-content-box">
 				<div className="right-info-box">
@@ -29,11 +29,11 @@ class RightInfo extends React.Component {
 						SOMETHING
 					</div>
 					<ul>
-						<li>一些文字</li>
-						<li>一些文字</li>
-						<li>一些文字</li>
-						<li>一些文字</li>
-						<li>一些文字</li>
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+						<li>4</li>
+						<li>5</li>
 					</ul>
 				</div>
 				<div className="right-info-box">

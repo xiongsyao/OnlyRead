@@ -13,7 +13,10 @@ class AbstractItem extends React.Component {
 		let {abstract} = this.props;
 		return (
 			<div>
+				{abstract.title}
 				{abstract.time}
+				{abstract.id}
+				<hr/>
 			</div>
 		)
 	}
