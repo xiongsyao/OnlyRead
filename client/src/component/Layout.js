@@ -5,7 +5,7 @@ import React from 'react';
 import { Layout, BackTop } from 'antd';
 import MyHeader from "./Header";
 import MyFooter from "./Footer";
-import MyContent from "./Content";
+import MainBox from "./MainBox";
 
 
 class MyLayout extends React.Component {
@@ -17,9 +17,9 @@ class MyLayout extends React.Component {
 		return (
 			<Layout style={{minWidth:"980px"}}>
 				<MyHeader/>
-				<MyContent>
+				<MainBox>
 					{this.props.children}
-				</MyContent>
+				</MainBox>
 				<BackTop/>
 				<MyFooter/>
 			</Layout>

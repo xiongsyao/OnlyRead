@@ -3,6 +3,7 @@
 from flask import jsonify
 from server import app,cache
 from server.spiders.jobbole import Jobbole,J_Detail
+import time
 
 
 
@@ -12,11 +13,10 @@ def hello():
 
 
 @app.route('/api/jobbole/news/<page>', methods=['GET'])
-@cache.cached(timeout=60*6)
+@cache.cached(timeout=60*60*60)
 def get_jobbole_news(page = 1):
 	jobbole = Jobbole(page)
 	news = jobbole.get_news()
-
 	return jsonify(
 		message = 'OK',
 		data = news

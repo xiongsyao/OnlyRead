@@ -6,8 +6,7 @@ import { baseUrl,api } from '../config/url'
 
 
 const GET_ABSTRACT = 'GET_ABSTRACT';
-const GET_DETAIL = 'GET_DETAIL';
-
+const GET_CONTENT = 'GET_CONTENT';
 
 
 //Action Creator
@@ -18,7 +17,7 @@ const recevied = (type, data) => {
 				type: type,
 				payload: data
 			};
-		case GET_DETAIL:
+		case GET_CONTENT:
 			return {
 				type: type,
 				payload: data
@@ -28,15 +27,32 @@ const recevied = (type, data) => {
 	}
 };
 
+
 export const fetchAbstract = (site,page=1) => dispatch => {
 	let url = '';
-	if(site) {
-		if (site === 'jobbole') {
+	switch (site) {
+		case("jobbole"):
 			url = `${baseUrl}${api.jobbole}${page}`
-		}
+			break;
+		default:
+			url = ``
 	}
 	console.log(`fetch.get url:${url}`);
 	return fetch.get(url)
 		.then(res => res.data.data)
 		.then(data => dispatch(recevied(GET_ABSTRACT, data)))
-}
+};
+
+export const fetchContent = (site,id) => dispatch => {
+	let url = '';
+	switch (site) {
+		case ("jobbole"):
+			url = `${baseUrl}${api.jobboleContent}${id}`
+			break;
+		default:
+			url = ''
+	}
+	return fetch.get(url)
+		.then(res => res.data.data)
+		.then(data => dispatch(recevied(GET_CONTENT, data)))
+};

@@ -5,7 +5,6 @@ const Reducer = (state = {},action) => {
 	console.log(action.type)
 	switch (action.type) {
 		case "GET_ABSTRACT":
-			console.log(action.payload)
 			return {
 				abstract:action.payload
 			};

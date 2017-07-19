@@ -4,8 +4,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { Pagination } from 'antd';
 import * as actions from '../redux/action'
 import AbstractItem from './AbstractItem'
+import Loading from './Loading'
 
 
 class Abstract extends React.Component {
@@ -14,21 +16,39 @@ class Abstract extends React.Component {
 		this.state = {
 			isLoading: true,
 			page: 1
-		}
+		};
+		this.onChangePage = this.onChangePage.bind(this)
+	}
+
+	onChangePage (page) {
+		console.log(page);
+		this.setState({
+			page: page,
+		});
+		this.props.actions.fetchAbstract('jobbole',page)
 	}
 
 	componentDidMount() {
 		this.props.actions.fetchAbstract('jobbole',this.state.page)
-			.then(this.setState({isLoading:false}))
+			.then(res => this.setState({isLoading:false}))
 	}
 
 
 	render() {
+		let { abstract } = this.props;
 		return (
 			<div className="left-content-box">
-				{this.props.abstract.map(
-					(unit,i) => <AbstractItem abstract={unit} key={i}/>)}
-				{this.state.isLoading ? '加载中' : ''}
+				{ this.state.isLoading ? <Loading/> : ''}
+				<div style={{alignSelf:"start"}}>
+				<Pagination
+					showQuickJumper
+					current={this.state.page}
+					onChange={this.onChangePage}
+					total={100}
+					size="small"/>
+				</div>
+				{ abstract.map(
+					(unit,i) => <AbstractItem abstract={unit} key={i}/>) }
 			</div>
 		)
 	}

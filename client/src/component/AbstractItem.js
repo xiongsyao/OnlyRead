@@ -16,7 +16,6 @@ class AbstractItem extends React.Component {
 				{abstract.title}
 				{abstract.time}
 				{abstract.id}
-				<hr/>
 			</div>
 		)
 	}

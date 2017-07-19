@@ -5,9 +5,9 @@ import React from 'react';
 import { Layout,Breadcrumb } from 'antd';
 import RightInfo from "./RightInfo";
 
-const { Content,Sider } = Layout;
+const { Content } = Layout;
 
-class MyContent extends React.Component {
+class MainBox extends React.Component {
 	constructor(props) {
 		super(props)
 	};
@@ -25,4 +25,4 @@ class MyContent extends React.Component {
 }
 
 
-export default MyContent
+export default MainBox
