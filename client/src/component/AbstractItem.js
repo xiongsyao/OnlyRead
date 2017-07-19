@@ -10,10 +10,13 @@ class AbstractItem extends React.Component {
 	}
 
 	render() {
+		let {abstract} = this.props;
 		return (
 			<div>
-
+				{abstract.time}
 			</div>
 		)
 	}
 }
+
+export default AbstractItem

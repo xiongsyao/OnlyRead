@@ -8,6 +8,8 @@ import { baseUrl,api } from '../config/url'
 const GET_ABSTRACT = 'GET_ABSTRACT';
 const GET_DETAIL = 'GET_DETAIL';
 
+
+
 //Action Creator
 const recevied = (type, data) => {
 	switch (type) {
@@ -35,5 +37,6 @@ export const fetchAbstract = (site,page=1) => dispatch => {
 	}
 	console.log(`fetch.get url:${url}`);
 	return fetch.get(url)
-		.then(res => res.data.list)
+		.then(res => res.data.data)
+		.then(data => dispatch(recevied(GET_ABSTRACT, data)))
 }
